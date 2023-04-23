@@ -4,11 +4,11 @@ import { HashLink as Link } from 'react-router-hash-link';
 import '../Style/Register.css'
 
 const Register = (props) => {
-    const { position, setPosition } = useState('');
-    const { password, setPassword } = useState('');
-    const { name, setName } = useState('');
-    const [gender, setGender] = useState('');
-    const [username, setUsername] = useState('');
+    const [ position, setPosition ] = useState('');
+    const [ password, setPassword ] = useState('');
+    const [ name, setName ] = useState('');
+    const [ gender, setGender ] = useState('');
+    const [ username, setUsername ] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,8 +21,8 @@ const Register = (props) => {
             <form className="register-form" onSubmit={handleSubmit}>
 
                 <div className="input-div">
-                    <label>Full Name:</label>
-                    <input value={name} name="name" id="name" placeholder="Full Name" />
+                    <label htmlFor="name">Full Name:</label>
+                    <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
                 </div>
 
                 <div className="rdbtn">
@@ -44,7 +44,7 @@ const Register = (props) => {
                 <div className="input-div">
                     <label>Position:</label>
                     <select value={position} onChange={(e) => setPosition(e.target.value)} id="position" name="position">
-                        <option value="">Select Position</option>
+                        <option value="" disabled>Select Position</option>
                         <option value="web">Web Developer</option>
                         <option value="ui">UI/UX Designer</option>
                         <option value="qa">QA Tester</option>
