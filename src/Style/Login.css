@@ -1,0 +1,48 @@
+.auth-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.auth-form-container h2 {
+    margin: 0px;
+    padding: 25px;
+    color: #FFAC30;
+    font-size: 60px;
+}
+.login-form {
+    width: 500px;
+}
+.login-form button {
+    padding: 5px;
+    margin: 25px 0 0 0;
+    background-color: #FFAC30;
+    color: black;
+    border-radius: 4px;
+    height: 40px;
+    width: 70px;
+    font-weight: bold;
+}
+.input-div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.input-div label {
+    color: white;
+    padding: 10px 0px;
+}
+.input-div input {
+    height: 40px;
+}
+.link-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 15px;
+    margin: 0px;
+}
+.link {
+     text-decoration: none;
+     color: #FFAC30;
+}
