@@ -6,6 +6,7 @@ import '../Style/Register.css'
 const Register = (props) => {
     const [ position, setPosition ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ confirmpassword, setConfirmPassword ] = useState('');
     const [ name, setName ] = useState('');
     const [ gender, setGender ] = useState('');
     const [ username, setUsername ] = useState('');
@@ -62,8 +63,8 @@ const Register = (props) => {
                 </div>
 
                 <div className="input-div">
-                    <label htmlFor="password">Confirm Password:</label>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" name="password" />
+                    <label htmlFor="confirm-password">Confirm Password:</label>
+                    <input value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="********" name="password" />
                 </div>
 
                 <button type="submit">Submit</button>

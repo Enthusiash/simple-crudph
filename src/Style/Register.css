@@ -43,6 +43,7 @@
     height: 40px;
     width: 70px;
     font-weight: bold;
+    cursor: pointer;
 }
 .link-button1 {
     background-color: transparent;
