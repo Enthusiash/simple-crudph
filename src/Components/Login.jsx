@@ -10,7 +10,6 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(email);
-
     }
 
     return (
@@ -30,7 +29,7 @@ const Login = (props) => {
                 
                 <div className="input-div">
                     <label htmlFor="password">Password:</label>
-                    <input value={password}
+                    <input
                     onChange={(e) => setPassword(e.target.value)}
                     type={"password"}
                     placeholder="********"

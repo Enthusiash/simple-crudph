@@ -14,8 +14,8 @@
     width: 500px;
 }
 .login-form button {
-    padding: 5px;
-    margin: 25px 0 0 0;
+    padding: 10px;
+    margin: 60px 0 0 0;
     background-color: #FFAC30;
     color: black;
     border-radius: 4px;
@@ -35,6 +35,11 @@
 }
 .input-div input {
     height: 40px;
+}
+.icon {
+    margin: -40px;
+    padding: 10px;
+    color: black;
 }
 .link-button {
     background-color: transparent;

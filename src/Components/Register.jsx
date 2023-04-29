@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
 
+import http from '../Utils/http';
+
 import '../Style/Register.css'
 
 const Register = (props) => {
@@ -11,14 +13,36 @@ const Register = (props) => {
     const [ gender, setGender ] = useState('');
     const [ username, setUsername ] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(position);
+        if (password === confirmpassword){
+            await http.post("/users/register", {
+                fullname: name,
+                gender,
+                position,
+                username,
+                password
+                })
+                .then ((res) => {
+                    alert("Registration Successful!")
+                    // console.log(res);
+                localStorage.setItem("token", res.data);
+                window.location = '/login';
+                })
+                .catch ((err) => {
+                    console.log(err);
+                })
+        }
+        else {
+            alert("Please Confirm Password!");
+        }
+        // console.log(name);
+    
     }
 
     return (
         <div className="auth-form-container1">
-            <h2>REGISTER</h2>
+            <h2>Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>
 
                 <div className="input-div">
@@ -46,9 +70,9 @@ const Register = (props) => {
                     <label>Position:</label>
                     <select value={position} onChange={(e) => setPosition(e.target.value)} id="position" name="position">
                         <option value="" disabled>Select Position</option>
-                        <option value="web">Web Developer</option>
-                        <option value="ui">UI/UX Designer</option>
-                        <option value="qa">QA Tester</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                        <option value="QA Tester">QA Tester</option>
                     </select>
                 </div>
 
