@@ -17,7 +17,7 @@ const Login = (props) => {
         })
         .then ( (res) => {
             localStorage.setItem("token", res)
-            // window.location.href = "/dashboard"
+            window.location.href = "/dashboard"
         })
         .catch ( (err) => {
             alert(err.response.data);

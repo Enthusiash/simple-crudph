@@ -132,6 +132,11 @@ export default function Sidenav() {
   navigate(path);
 }
 
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/login"
+}
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -270,7 +275,7 @@ export default function Sidenav() {
               >
                 <LogoutIcon />
               </ListItemIcon>
-              <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText onClick={ handleLogout } primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
         </List>
