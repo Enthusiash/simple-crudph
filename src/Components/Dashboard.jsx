@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import SideNav from '../SideNav'
 import Box from '@mui/material/Box';
@@ -5,9 +7,17 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent'
 import Card from '@mui/material/Card'
 
+
 import '../Style/Dashboard.css'
 
-const Dashboard = () => {
+const Dashboard = ({admin}) => {
+  let navigate = useNavigate();
+
+    useEffect(() => {
+        if (admin) {
+            navigate(-1);
+        }
+    }, [admin])
   return (
     <>
     <div>

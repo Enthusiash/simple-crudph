@@ -26,7 +26,7 @@ const Login = ({admin}) => {
             password
         })
         .then ( (res) => {
-            localStorage.setItem("token", res)
+            localStorage.setItem("token", res.data)
             window.location.href = "/dashboard"
         })
         .catch ( (err) => {

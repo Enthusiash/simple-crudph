@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import jwtDecode from "jwt-decode"
+import setAuthToken from './Utils/setAuthToken'
 
 import './App.css'
 
