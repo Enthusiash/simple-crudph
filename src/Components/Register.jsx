@@ -41,7 +41,7 @@ const Register = (props) => {
     }
 
     return (
-        <div className="auth-form-container1">
+        <div style={{ width: "30%" }} className="auth-form-container1">
             <h2>Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>
 
@@ -50,7 +50,7 @@ const Register = (props) => {
                     <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
                 </div>
 
-                <div className="rdbtn">
+                <div style={{ width: "50%", display: "flex", flexDirection: "column", margin: "20px 0 0 0", color: "white" }} className="rdbtn">
                     <div>
                         <label htmlFor="gender">Gender:</label>
                     </div>
@@ -66,9 +66,9 @@ const Register = (props) => {
                     </div>
                 </div>
 
-                <div className="input-div">
+                <div style={{ width: "50%", display: "flex", justifyContent: "start"}} className="input-div">
                     <label>Position:</label>
-                    <select value={position} onChange={(e) => setPosition(e.target.value)} id="position" name="position">
+                    <select style={{ fontSize: "18px", width: "100%" }} value={position} onChange={(e) => setPosition(e.target.value)} id="position" name="position">
                         <option value="" disabled>Select Position</option>
                         <option value="Web Developer">Web Developer</option>
                         <option value="UI/UX Designer">UI/UX Designer</option>
@@ -91,7 +91,7 @@ const Register = (props) => {
                     <input value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="********" name="password" />
                 </div>
 
-                <button type="submit">Submit</button>
+                <button style={{ margin: "50px 0 0 0"}} type="submit">Submit</button>
             </form>
             <span className="link-button1">Already have an account?<Link className="link" to="/login"> Login here.</Link></span>
         </div>

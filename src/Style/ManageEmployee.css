@@ -1,0 +1,22 @@
+#dashboard-contents .table-tbl {
+    color: black;
+    background-color: #FFAC30;
+}
+.btn-action {
+    display: flex;
+    column-gap: 3px;
+}
+.btn-action button {
+    border-radius: 5px;
+    border: none;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-action #edit-btn {
+    background-color: green;
+}
+.btn-action #delete-btn {
+    background-color: red;
+}   

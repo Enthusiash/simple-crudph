@@ -1,8 +1,10 @@
 .auth-form-container {
-    width: 100%;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #FFAC30;
 }
 .auth-form-container h2 {
     margin: 0px;
@@ -12,6 +14,9 @@
 }
 .login-form {
     width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .login-form button {
     padding: 10px;
@@ -34,12 +39,7 @@
     padding: 10px 0px;
 }
 .input-div input {
-    height: 40px;
-}
-.icon {
-    margin: -40px;
-    padding: 10px;
-    color: black;
+    font-size: 20px;
 }
 .link-button {
     background-color: transparent;

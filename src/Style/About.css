@@ -1,0 +1,48 @@
+/* .text h1 {
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    padding: 150px;
+}
+.text h2 {
+    font-size: 25px;   
+    display: flex;
+    justify-content: center;
+}
+.text h3, span {
+    font-size: 25px;
+    display: flex;
+    justify-content: center; 
+} */
+.col-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.col-cardDiv {
+    display: flex;
+    justify-content: center;
+}
+.col-container {
+    flex-direction: row; 
+    padding: 10px;
+}
+.image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+.image h1, h2 {
+    font-size: 15px;
+}
+.btn-resume {
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FFAC30;
+    cursor: pointer;
+    border: none;
+}

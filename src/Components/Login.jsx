@@ -1,15 +1,27 @@
 import React, { useState } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
 
+import http from '../Utils/http'
+
 import '../Style/Login.css'
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) =>  {
         e.preventDefault();
-        console.log(email);
+        await http.post("/auth", {
+            username,
+            password
+        })
+        .then ( (res) => {
+            localStorage.setItem("token", res)
+            // window.location.href = "/dashboard"
+        })
+        .catch ( (err) => {
+            alert(err.response.data);
+        })
     }
 
     return (

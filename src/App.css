@@ -8,3 +8,21 @@
   background-size: cover;
   background-color: black;
 }
+.toolbar {
+  background-color: #FFAC30;
+}
+#dashboard-contents {
+  color: #FFAC30;
+  padding: 400px;
+  background-color: black;
+  height: 100vh;
+  text-align: center;
+}
+
+#title {
+  color: black;
+}
+#drawer-list {
+  background-color: #FFAC30;
+  height: 100vh;
+}

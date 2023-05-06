@@ -1,0 +1,9 @@
+.num-emp {
+    border: 1px solid #FFAC30;
+    border-radius: 5px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
