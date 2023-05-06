@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
+import { useNavigate } from 'react-router-dom'
 
 import http from '../Utils/http'
 
 import '../Style/Login.css'
 
-const Login = (props) => {
+const Login = ({admin}) => {
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (admin) {
+            navigate(-1);
+        }
+    }, [admin])
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
+import { useNavigate } from 'react-router-dom'
+
 
 import http from '../Utils/http';
 
 import '../Style/Register.css'
 
-const Register = (props) => {
+const Register = ({admin}) => {
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (admin) {
+            navigate(-1);
+        }
+    }, [admin])
+
     const [ position, setPosition ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ confirmpassword, setConfirmPassword ] = useState('');
