@@ -133,6 +133,7 @@ export default function Sidenav() {
 }
 
 const handleLogout = () => {
+  alert("Logging Out!")
   localStorage.removeItem("token");
   window.location.href = "/login"
 }

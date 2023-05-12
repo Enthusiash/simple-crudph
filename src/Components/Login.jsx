@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
 import { useNavigate } from 'react-router-dom'
 
+import Modal from '../Components/Modal'
+
 import http from '../Utils/http'
 
 import '../Style/Login.css'
@@ -26,6 +28,7 @@ const Login = ({admin}) => {
             password
         })
         .then ( (res) => {
+            alert("Login Successfully!")
             localStorage.setItem("token", res.data)
             window.location.href = "/dashboard"
         })
@@ -63,6 +66,9 @@ const Login = ({admin}) => {
 
             </form>
             <span className="link-button">Don't have an account?<Link className="link" to="/register"> Register here.</Link></span>
+            <>
+                <Modal />
+            </>
         </div>
     )
 }
