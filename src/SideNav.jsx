@@ -37,6 +37,8 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled, useTheme } from '@mui/material/styles';
 
+import Swal from "sweetalert2";
+
 import './App.css';
 
 const drawerWidth = 240;
@@ -133,9 +135,16 @@ export default function Sidenav() {
 }
 
 const handleLogout = () => {
-  alert("Logging Out!")
+  Swal.fire({
+    text: "Logging Out...",
+    icon: "info",
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 1500
+})
+  .then ( () => {
   localStorage.removeItem("token");
-  window.location.href = "/login"
+  window.location.href = "/login"})
 }
 
   return (

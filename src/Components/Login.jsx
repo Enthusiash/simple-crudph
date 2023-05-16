@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
 import { useNavigate } from 'react-router-dom'
 
+import Swal from "sweetalert2";
+
 import Modal from '../Components/Modal'
 
 import http from '../Utils/http'
@@ -28,9 +30,16 @@ const Login = ({admin}) => {
             password
         })
         .then ( (res) => {
-            alert("Login Successfully!")
+            Swal.fire({
+                text: "Login Successfully!",
+                icon: "success",
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            .then ( () => {
             localStorage.setItem("token", res.data)
-            window.location.href = "/dashboard"
+            window.location.href = "/dashboard"})
         })
         .catch ( (err) => {
             alert(err.response.data);
