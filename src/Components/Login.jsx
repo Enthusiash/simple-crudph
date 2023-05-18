@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
 import { useNavigate } from 'react-router-dom'
 
+// SWEETALERT2   //
 import Swal from "sweetalert2";
 
 import Modal from '../Components/Modal'
@@ -23,6 +24,19 @@ const Login = ({admin}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    // SWEETALERT2 FUNCTION //
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        iconColor: "#FFAC30",
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
     const handleSubmit = async(e) =>  {
         e.preventDefault();
         await http.post("/auth", {
@@ -30,12 +44,9 @@ const Login = ({admin}) => {
             password
         })
         .then ( (res) => {
-            Swal.fire({
-                text: "Login Successfully!",
-                icon: "success",
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500
+            Toast.fire({
+                icon: 'success',
+                title: 'Login Successfully!'
             })
             .then ( () => {
             localStorage.setItem("token", res.data)
@@ -58,7 +69,8 @@ const Login = ({admin}) => {
                     type="username"
                     placeholder="Username"
                     id="username"
-                    name="username" required />
+                    name="username"
+                    required />
                 </div>
                 
                 <div className="input-div">
@@ -67,7 +79,8 @@ const Login = ({admin}) => {
                     onChange={(e) => setPassword(e.target.value)}
                     type={"password"}
                     placeholder="********"
-                    name="password" required />
+                    name="password"
+                    required />
                 </div>
                 <div>
                     <button type="submit">Login</button>

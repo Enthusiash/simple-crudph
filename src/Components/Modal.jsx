@@ -25,7 +25,7 @@ export default function Modal() {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Meditate, try to remember your password! :D</h2>
+            <h2>Verification Code Form here.</h2>
           </div>
         </div>
       )}

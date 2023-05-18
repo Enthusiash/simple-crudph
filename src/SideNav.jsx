@@ -37,6 +37,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled, useTheme } from '@mui/material/styles';
 
+// SWEETALERT2 //
 import Swal from "sweetalert2";
 
 import './App.css';
@@ -108,6 +109,19 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+// SWEETALERT2 FUNCTION //
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'bottom-end',
+  showConfirmButton: false,
+  timer: 1500,
+  iconColor: "#FFAC30",
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
 export default function Sidenav() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -135,12 +149,9 @@ export default function Sidenav() {
 }
 
 const handleLogout = () => {
-  Swal.fire({
-    text: "Logging Out...",
+  Toast.fire({
     icon: "info",
-    position: 'bottom-end',
-    showConfirmButton: false,
-    timer: 1500
+    title: "Logging out..."
 })
   .then ( () => {
   localStorage.removeItem("token");

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
 import { useNavigate } from 'react-router-dom'
 
+// SWEETALERT2 //
+import Swal from "sweetalert2";
 
 import http from '../Utils/http';
 
@@ -24,6 +26,19 @@ const Register = ({admin}) => {
     const [ gender, setGender ] = useState('');
     const [ username, setUsername ] = useState('');
 
+    // SWEETALERT 2 FUNCTION //
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        iconColor: "#FFAC30",
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password === confirmpassword){
@@ -35,10 +50,14 @@ const Register = ({admin}) => {
                 password
                 })
                 .then ((res) => {
-                    alert("Registration Successful!")
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Registered Successfully!'
+                    })
+                .then ( () => {
                     // console.log(res);
                 localStorage.setItem("token", res.data);
-                window.location = '/login';
+                window.location = '/login';})
                 })
                 .catch ((err) => {
                     console.log(err);
@@ -58,7 +77,7 @@ const Register = ({admin}) => {
 
                 <div className="input-div">
                     <label htmlFor="name">Full Name:</label>
-                    <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
+                    <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" required />
                 </div>
 
                 <div style={{ width: "50%", display: "flex", flexDirection: "column", margin: "20px 0 0 0", color: "white" }} className="rdbtn">
@@ -68,18 +87,18 @@ const Register = ({admin}) => {
                     <div className="rdbtnrow">
                         <div>
                             <label htmlFor="male">Male</label>
-                            <input type="radio" name="gender" value="male" checked={gender === 'male'} onChange={(e) => setGender(e.target.value)} />
+                            <input type="radio" name="gender" value="male" checked={gender === 'male'} onChange={(e) => setGender(e.target.value)} required />
                         </div>
                         <div>
                             <label htmlFor="female">Female</label>
-                            <input type="radio" name="gender" value="female" checked={gender === 'female'} onChange={(e) => setGender(e.target.value)} />
+                            <input type="radio" name="gender" value="female" checked={gender === 'female'} onChange={(e) => setGender(e.target.value)} required />
                         </div>
                     </div>
                 </div>
 
                 <div style={{ width: "50%", display: "flex", justifyContent: "start"}} className="input-div">
                     <label>Position:</label>
-                    <select style={{ fontSize: "18px", width: "100%" }} value={position} onChange={(e) => setPosition(e.target.value)} id="position" name="position">
+                    <select style={{ fontSize: "18px", width: "100%" }} value={position} onChange={(e) => setPosition(e.target.value)} required id="position" name="position">
                         <option value="" disabled>Select Position</option>
                         <option value="Web Developer">Web Developer</option>
                         <option value="UI/UX Designer">UI/UX Designer</option>
@@ -89,17 +108,17 @@ const Register = ({admin}) => {
 
                 <div className="input-div">
                     <label htmlFor="username">Username:</label>
-                    <input value={username} onChange={(e) => setUsername(e.target.value)} type="username" placeholder="Username" name="username" />
+                    <input value={username} onChange={(e) => setUsername(e.target.value)} type="username" placeholder="Username" name="username" required />
                 </div>
 
                 <div className="input-div">
                     <label htmlFor="password">Password:</label>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" name="password" />
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" name="password" required />
                 </div>
 
                 <div className="input-div">
                     <label htmlFor="confirm-password">Confirm Password:</label>
-                    <input value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="********" name="password" />
+                    <input value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="********" name="password" required />
                 </div>
 
                 <button style={{ margin: "50px 0 0 0"}} type="submit">Submit</button>
