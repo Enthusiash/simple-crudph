@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { HashLink as Link } from 'react-router-hash-link'
 import { useNavigate } from 'react-router-dom'
 
+import { AiFillEyeInvisible } from 'react-icons/ai';
+import { AiFillEye } from 'react-icons/ai';
+
 // SWEETALERT2   //
 import Swal from "sweetalert2";
 
@@ -23,6 +26,7 @@ const Login = ({admin}) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     // SWEETALERT2 FUNCTION //
     const Toast = Swal.mixin({
@@ -36,6 +40,10 @@ const Login = ({admin}) => {
           toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
       })
+
+    const handleToggle = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleSubmit = async(e) =>  {
         e.preventDefault();
@@ -72,15 +80,21 @@ const Login = ({admin}) => {
                     name="username"
                     required />
                 </div>
-                
                 <div className="input-div">
                     <label htmlFor="password">Password:</label>
-                    <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    type={"password"}
-                    placeholder="********"
-                    name="password"
-                    required />
+                        <div className="password-input">
+                        <input
+                        onChange={(e) => setPassword(e.target.value)}
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="********"
+                        name="password"
+                        required />
+                        {showPassword ? 
+                        <span onClick={handleToggle} className="hello-test"><AiFillEye className="password-toggle" /></span>
+                            : 
+                        <span onClick={handleToggle} className="hello-test"><AiFillEyeInvisible className="password-toggle"  /></span>
+                        }
+                        </div> 
                 </div>
                 <div>
                     <button type="submit">Login</button>

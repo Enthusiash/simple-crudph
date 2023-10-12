@@ -1,9 +1,4 @@
 .auth-form-container {
-    width: 500px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     border: 1px solid #FFAC30;
 }
 .auth-form-container h2 {
@@ -17,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 .login-form button {
     padding: 10px;
@@ -46,9 +42,19 @@
     border: none;
     color: white;
     padding: 15px;
-    margin: 0px;
+
 }
 .link {
      text-decoration: none;
      color: #FFAC30;
+}
+.password-input {
+    display: flex;
+    position: relative;
+}
+.hello-test {
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+    cursor: pointer;
 }

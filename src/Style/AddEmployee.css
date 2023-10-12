@@ -7,6 +7,7 @@
     border: 1px solid #FFAC30;
     padding: 0 0 40px 0;
     border-radius: 5px;
+    margin-top: 50px;
 }
 .auth-form-container1 h2 {
     margin: 0px;
@@ -46,6 +47,9 @@
     height: 50px;
     row-gap: 5px;
     margin: 20px 0 0 0;
+}
+.fname {
+    height: 70px;
 }
 .holder {
      font-size: 18px;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import SideNav from '../SideNav'
@@ -8,11 +8,30 @@ import CardContent from '@mui/material/CardContent'
 import Card from '@mui/material/Card'
 
 import '../Style/Dashboard.css'
+import http from '../Utils/http'
 
 const Dashboard = ({admin}) => {
   let navigate = useNavigate();
 
+  const [dashboardData, setDashboardData] = useState({
+    totalEmployees: 0,
+    males: 0,
+    females: 0,
+    webDevelopers: 0,
+    uiUxDesigners: 0,
+    qaTesters: 0,
+  });
+
+  const getData = () => {
+    http.get('/users/dashboard')
+    .then(res => {
+      setDashboardData(res.data);
+      console.log(res.data);
+    })
+  }
+
     useEffect(() => {
+      getData();
         if (admin) {
             navigate(-1);
         }
@@ -28,7 +47,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.totalEmployees}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">
@@ -41,7 +60,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.males}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">
@@ -54,7 +73,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.females}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">
@@ -69,7 +88,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.webDevelopers}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">
@@ -82,7 +101,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.uiUxDesigners}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">
@@ -95,7 +114,7 @@ const Dashboard = ({admin}) => {
         <CardContent sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div className="num-emp">
           <Typography variant="h2" component="div">
-            5
+          {dashboardData.qaTesters}
           </Typography>
           </div>
           <Typography sx={{ color: "#FFAC30", mt: "10px" }} color="text.secondary">

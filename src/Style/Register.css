@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid #FFAC30;
 }
 .auth-form-container1 h2 {
     margin: 0px;

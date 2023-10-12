@@ -1,7 +1,6 @@
 body.active-modal {
     overflow-y: hidden;
 }
-
 .btn-modal {
     display: flex;
     font-size: 15px;
@@ -9,6 +8,8 @@ body.active-modal {
     color: #FFAC30;
     border: none;
     cursor: pointer;
+    padding: 30px;
+    margin-left: 160px;
 }
 
 .modal, .overlay {
@@ -37,11 +38,34 @@ body.active-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-
 .close-modal {
     position: absolute;
     top: 10px;
     right: 10px;
     padding: 5px 7px;
+}
+.email-div {
+    display: flex;
+    justify-content: center;
+}
+.email-email {
+    margin: 5px;
+}
+.verification {
+    cursor: pointer;
+    color: #FFAC30;
+    background-color: black;
+    width: 150px;
+}
+.code-code {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.code-code input {
+    font-size: 14px;
+    height: 22px;
+    margin-left: 5px;
 }

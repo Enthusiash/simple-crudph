@@ -25,6 +25,7 @@ const Register = ({admin}) => {
     const [ name, setName ] = useState('');
     const [ gender, setGender ] = useState('');
     const [ username, setUsername ] = useState('');
+    const [ email, setEmail ] = useState('');
 
     // SWEETALERT 2 FUNCTION //
     const Toast = Swal.mixin({
@@ -45,6 +46,7 @@ const Register = ({admin}) => {
             await http.post("/users/register", {
                 fullname: name,
                 gender,
+                email,
                 position,
                 username,
                 password
@@ -94,6 +96,11 @@ const Register = ({admin}) => {
                             <input type="radio" name="gender" value="female" checked={gender === 'female'} onChange={(e) => setGender(e.target.value)} required />
                         </div>
                     </div>
+                </div>
+
+                <div className="input-div">
+                    <label htmlFor="email">Email:</label>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} name="email" id="email" placeholder="Email" required />
                 </div>
 
                 <div style={{ width: "50%", display: "flex", justifyContent: "start"}} className="input-div">
